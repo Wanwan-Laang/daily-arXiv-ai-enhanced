@@ -4,6 +4,13 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT_DIR"
 
+if [[ -f "$ROOT_DIR/.venv/bin/activate" ]]; then
+    source "$ROOT_DIR/.venv/bin/activate"
+else
+    echo "Missing .venv. Run: uv sync" >&2
+    exit 1
+fi
+
 if [[ -z "${OPENAI_API_KEY:-}" ]]; then
     read -r -s -p "Enter your GCLI2API API password: " OPENAI_API_KEY
     echo
