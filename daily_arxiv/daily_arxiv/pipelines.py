@@ -9,7 +9,6 @@ import arxiv
 import json
 import os
 import sys
-import re
 from datetime import datetime, timedelta
 from scrapy.exceptions import DropItem
 
