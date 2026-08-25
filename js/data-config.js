@@ -31,6 +31,12 @@ const DATA_CONFIG = {
      * @returns {string} Base URL for raw GitHub content
      */
     getDataBaseUrl: function() {
+        // Use data generated in this checkout when served locally.
+        // GitHub Pages continues to use the configured data branch.
+        if (window.location.hostname === 'localhost' ||
+            window.location.hostname === '127.0.0.1') {
+            return window.location.origin;
+        }
         return `https://raw.githubusercontent.com/${this.repoOwner}/${this.repoName}/${this.dataBranch}`;
     },
 
@@ -43,4 +49,3 @@ const DATA_CONFIG = {
         return `${this.getDataBaseUrl()}/${filePath}`;
     }
 };
-
