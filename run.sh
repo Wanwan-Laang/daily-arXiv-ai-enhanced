@@ -22,7 +22,7 @@ if [ -z "$OPENAI_API_KEY" ]; then
     echo ""
     echo "🔧 可选变量 / Optional variables:"
     echo "   export OPENAI_BASE_URL=\"https://api.openai.com/v1\"  # API基础URL / API base URL"
-    echo "   export LANGUAGE=\"Chinese\"                           # 语言设置 / Language setting"
+    echo "   export LANGUAGE=\"Chinese\"                           # 繁體中文 / Traditional Chinese"
     echo "   export CATEGORIES=\"cs.CV, cs.CL\"                    # 关注分类 / Categories of interest"
     echo "   export MODEL_NAME=\"gpt-4o-mini\"                     # 模型名称 / Model name"
     echo ""
@@ -72,6 +72,12 @@ else
     echo "📝 今日文件不存在，准备新建... / Today's file doesn't exist, ready to create new one..."
 fi
 
+# Remove derived files from an earlier run so a stricter/empty rerun cannot
+# leave stale papers visible in the local reader.
+rm -f "data/${today}_AI_enhanced_Chinese.jsonl" \
+      "data/${today}_AI_enhanced_English.jsonl" \
+      "data/${today}.md"
+
 cd daily_arxiv
 scrapy crawl arxiv -o ../data/${today}.jsonl
 
@@ -91,6 +97,7 @@ case $dedup_exit_code in
         ;;
     1)
         # check_stats.py已输出无新内容信息，停止处理 / check_stats.py already output no new content info, stop processing
+        ls ../data/*.jsonl 2>/dev/null | sed 's|../data/||' > ../assets/file-list.txt || true
         exit 1
         ;;
     2)

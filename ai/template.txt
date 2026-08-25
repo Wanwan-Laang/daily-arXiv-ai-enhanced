@@ -1,4 +1,6 @@
 Please analyze the following abstract of papers. 
 
+If the requested language is Chinese, all analysis fields must use Traditional Chinese (繁體中文), not Simplified Chinese.
+
 Content:
 {content}

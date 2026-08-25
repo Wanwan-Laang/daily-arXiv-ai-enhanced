@@ -22,10 +22,11 @@ export LANGUAGE="${LANGUAGE:-Chinese}"
 export CATEGORIES="${CATEGORIES:-cond-mat.mtrl-sci, cond-mat.stat-mech, physics.comp-ph, physics.chem-ph, nucl-ex, nucl-th}"
 export MODEL_NAME="${MODEL_NAME:-gemini-2.5-flash}"
 export RESEARCH_STRICT_PROFILE="${RESEARCH_STRICT_PROFILE:-1}"
-export RESEARCH_KEYWORDS="${RESEARCH_KEYWORDS:-high-entropy carbide, high entropy carbide, refractory high-entropy carbide, ceramic carbide, transition-metal carbide, TiTaZrNb, carbon vacancy, vacancy ordering, vacancy formation energy, defect energetics, machine-learning interatomic potential, machine learned interatomic potential, MLIP, interatomic potential, DeepMD, DeePMD-kit, neural network interatomic potential, equivariant interatomic potential, graph neural network potential, active learning interatomic potential, irradiation damage, radiation damage, displacement cascade, collision cascade, primary knock-on atom, PKA, defect evolution, FLiBe, molten salt, zirconium hydride, ZrH2, hydride moderator, hydrogen retention, nuclear fuel, high-temperature ionic transport, superionic transition, ion diffusion in solid}"
+export RESEARCH_KEYWORDS="${RESEARCH_KEYWORDS:-high-entropy carbide, TiTaZrNb, carbon vacancy, vacancy ordering, FLiBe, molten salt, zirconium hydride, ZrH2, hydride moderator, hydrogen retention, nuclear fuel, fuel cladding, nuclear material, nuclear ceramic, nuclear energy materials, irradiation damage, radiation damage, displacement cascade, collision cascade, PKA, defect energetics, defect evolution, point defect, experiment, experimental, synthesis, characterization, phase stability, thermal conductivity, mechanical properties, neutron irradiation, ion irradiation, XRD, TEM, SEM, MLIP, interatomic potential, DeepMD, DFT, first-principles, AIMD, molecular dynamics, LAMMPS, ion diffusion, ionic transport, superionic transition}"
 
 echo "Using local API: ${OPENAI_BASE_URL}"
 echo "Categories: ${CATEGORIES}"
 echo "Research keyword filter enabled."
+echo "Chinese output mode: Traditional Chinese (繁體中文)."
 
 bash run.sh
